@@ -1,0 +1,12 @@
+/*.page {*/
+/*    display: grid;*/
+/*    grid-template-rows: auto 1fr auto;*/
+/*}*/
+
+/*Заметка: хорошей идеей является явное задание css: false для тех переходов, которые выполняются только с помощью JavaScript. В этом случае Vue не будет стараться определить наличие CSS для анимации. Такой подход также избавляет от возможного вмешательства CSS-стилей в происходящую анимацию.*/
+.page-enter-active, .page-leave-active {
+    transition: opacity .5s;
+}
+.page-enter, .page-leave-active {
+    opacity: 0;
+}

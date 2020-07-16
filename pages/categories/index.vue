@@ -1,0 +1,47 @@
+<template>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div v-for="category in categories" :key="category.id" class="col">
+            <div class="card h-100">
+                <img src="https://picsum.photos/400/100" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{category.name}}</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="card-footer text-right">
+                    <nuxt-link class="stretched-link" :to="`/categories/${category.id}`">View category</nuxt-link>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+  export default {
+    name: 'index',
+    head: {
+      title: 'Категории'
+    },
+    // async data({ params }) {
+    //   const categories = await this.$api.get('/categories');
+    //   return {
+    //     categories: categories.data,
+    //   }
+    // }
+    async asyncData({ $api }) {
+      return {
+        categories: await $api.getCategories()
+      }
+    },
+    // async asyncData ({ params }) {
+    //   const { data } = await axios.$get(`http://localhost:3005/categories`)
+    //   console.log('data', data);
+    //   return {
+    //     categories: data.data
+    //   }
+    // }
+  }
+</script>
+
+<style scoped>
+
+</style>
