@@ -1,0 +1,32 @@
+{
+  "name": "demo-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mock": "json-server mock/index.js -p 3005",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smirnov-d/demo-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smirnov-d/demo-shop/issues"
+  },
+  "homepage": "https://github.com/smirnov-d/demo-shop#readme",
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.0",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.13.3"
+  },
+  "devDependencies": {
+    "json-server": "^0.16.1"
+  }
+}
