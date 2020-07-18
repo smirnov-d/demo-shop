@@ -1,13 +1,13 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">SSR Demo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
+                    <!--<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
@@ -17,17 +17,22 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
+                    </li>-->
+                    <li class="nav-item">
+                        <nuxt-link active-class="active" exact class="nav-link" to="/">Home</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/categories">Categories</nuxt-link>
+                        <nuxt-link active-class="active" class="nav-link" to="/categories">Categories</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/categories">Blog</nuxt-link>
+                        <nuxt-link active-class="active" class="nav-link" to="/blog">Blog</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link class="nav-link" to="/checkout">Checkout</nuxt-link>
+                        <!-- todo: Nuxt.js v2.10.0, you can also use the prefetch prop set to false --><!--no-prefetch :prefetch="false"-->
+                        <nuxt-link active-class="active" :prefetch="false" class="nav-link" to="/checkout">Checkout</nuxt-link>
                     </li>
                 </ul>
+                <button class="btn btn-primary mx-3" @click="$router.push('/login')">Login</button>
                 <form @submit.prevent class="d-flex">
                     <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
