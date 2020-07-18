@@ -29,6 +29,11 @@ export const actions = {
     localStorage.removeItem('token');
     window.location.reload();
   },
+  // fired once on app init on the server side
+  //todo: check use-cases
+  nuxtServerInit() {
+    console.log('server init');
+  },
 };
 
 export const getters = {
