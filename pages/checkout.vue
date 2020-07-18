@@ -8,7 +8,8 @@
     head: {
       title: 'Оформление заказа'
     },
-    layout: 'empty'
+    layout: 'empty',
+    middleware: ['auth']
   }
 </script>
 

@@ -32,7 +32,10 @@
                         <nuxt-link active-class="active" :prefetch="false" class="nav-link" to="/checkout">Checkout</nuxt-link>
                     </li>
                 </ul>
-                <button class="btn btn-primary mx-3" @click="$router.push('/login')">Login</button>
+
+                <button v-if="!isLoggedIn" key="login" class="btn btn-primary mx-3" @click="login">Login</button>
+                <button v-else key="logout" class="btn btn-primary mx-3" @click="logout">Logout</button>
+
                 <form @submit.prevent class="d-flex">
                     <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -43,8 +46,27 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex';
+
   export default {
-    name: 'navigation'
+    name: 'navigation',
+    computed: {
+      ...mapGetters({
+        isLoggedIn: 'auth/isLoggedIn'
+      })
+    },
+    methods: {
+      async login() {
+        await this.$store.dispatch('auth/login', {
+          "email": "eve.holt@reqres.in",
+          "password": "cityslicka",
+          // "email": "peter@klaven"
+        });
+      },
+      logout() {
+        this.$store.dispatch('auth/logout');
+      }
+    },
   }
 </script>
 
