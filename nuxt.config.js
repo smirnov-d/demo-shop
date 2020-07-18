@@ -1,5 +1,5 @@
 module.exports = {
-  //mode: 'universal', // todo: check default
+  //mode: 'universal', // 'universal' / 'spa' // todo: check default
   head: {
     titleTemplate: '%s - Nuxt.js',
     meta: [
@@ -15,6 +15,9 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' },
     ]
   },
+  // router: {
+  //   prefetchLinks: false
+  // },
   css: [
     'normalize.css',
     'assets/style.css',

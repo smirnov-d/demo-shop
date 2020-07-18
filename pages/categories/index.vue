@@ -16,6 +16,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
   export default {
     name: 'index',
     head: {
@@ -27,18 +28,16 @@
     //     categories: categories.data,
     //   }
     // }
-    async asyncData({ $api }) {
-      return {
-        categories: await $api.getCategories()
+    async fetch({ store }) {
+      if(!store.state.categories.categories.length) {
+        await store.dispatch('categories/fetchData')
       }
     },
-    // async asyncData ({ params }) {
-    //   const { data } = await axios.$get(`http://localhost:3005/categories`)
-    //   console.log('data', data);
-    //   return {
-    //     categories: data.data
-    //   }
-    // }
+    computed: {
+      ...mapState({
+        categories: ({categories}) => categories.categories,
+      })
+    },
   }
 </script>
 

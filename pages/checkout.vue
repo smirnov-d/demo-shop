@@ -7,7 +7,8 @@
     name: 'cart',
     head: {
       title: 'Оформление заказа'
-    }
+    },
+    layout: 'empty'
   }
 </script>
 
