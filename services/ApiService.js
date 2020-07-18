@@ -26,6 +26,7 @@ export default function ({ $axios }, inject) {
   })
 
   api.getCategories = () => api.$get('/categories')
+  api.getProducts = () => api.$get('/products')
   api.getProductsByCategory = (catId) => api.$get(`/products?categoryId=${catId}`)
 
   // Inject to context as $api

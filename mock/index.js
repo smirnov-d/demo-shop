@@ -4,7 +4,7 @@ module.exports = () => {
     products: [],
   }
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 1; i <= 10; i++) {
     data.categories.push({
       id: i,
       name: `category-${i}`,
@@ -13,22 +13,24 @@ module.exports = () => {
 
   const categoriesIds = data.categories.map(({id}) => id);
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 1; i <= 100; i++) {
     data.products.push({
       id: i,
       name: `product${i}`,
       description: getDescription(),
-      categoryId: categoriesIds[getRandomInt(categoriesIds.length)],
+      categoryId: categoriesIds[getRandomInt(categoriesIds.length - 1, 0)],
       image: 'https://picsum.photos/200',
       price: getRandomInt(10000)
     })
   }
 
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max)
+  function getRandomInt(max, min = 1) {
+    // случайное число от min до (max+1)
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
   }
 
-  function getDescription(countParagraph = Math.floor(Math.random() * 5)) {
+  function getDescription(countParagraph = getRandomInt(5)) {
     let description = '';
     const placeholders = [
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dignissimos ea et ex explicabo fuga maiores maxime nemo, numquam pariatur repudiandae tempora, totam ullam veritatis voluptates? Cumque est hic temporibus',
@@ -37,8 +39,8 @@ module.exports = () => {
       'Повседневная практика показывает, что реализация намеченных плановых заданий играет важную роль в формировании систем массового участия. Разнообразный и богатый опыт дальнейшее развитие различных форм деятельности позволяет оценить значение новых предложений.',
     ];
 
-    for (let i = 0; i < countParagraph; i++) {
-      const randomItem = placeholders[getRandomInt(placeholders.length)];
+    for (let i = 1; i <= countParagraph; i++) {
+      const randomItem = placeholders[getRandomInt(placeholders.length - 1, 0 )];
       const randomLength = randomItem.slice(0, getRandomInt(randomItem.length));
       description += `<p>${randomLength}</p>`;
     }
