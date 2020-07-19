@@ -10,6 +10,10 @@ export const mutations = {
 };
 
 export const actions = {
+  // https://ru.nuxtjs.org/examples/auth-routes/
+  // https://github.com/nuxt/nuxt.js/blob/dev/examples/auth-routes/api/index.js
+  // https://github.com/SohoHouse/nuxt-oauth
+  /* todo: Don’t rely on localStorage because the server does not know that it exists.*/
   async login ({commit}, {email, password}) {
     try {
       const {data} = await this.$api.post('https://reqres.in/api/login', {
@@ -28,11 +32,6 @@ export const actions = {
     commit('setToken', null);
     localStorage.removeItem('token');
     window.location.reload();
-  },
-  // fired once on app init on the server side
-  //todo: check use-cases
-  nuxtServerInit() {
-    console.log('server init');
   },
 };
 

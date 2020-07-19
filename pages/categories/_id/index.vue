@@ -22,9 +22,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer text-right">
+                    <div class="card-footer d-flex align-items-center justify-content-between">
                         <nuxt-link :to="`/products/${product.id}`">View more</nuxt-link>
-                        <a href="" @click.prevent="addToCart">В корзину</a>
+                        <!--<a href="" @click.prevent="addToCart">В корзину</a>-->
+                        <cart-button :product="product"/>
                     </div>
                 </div>
             </div>
@@ -34,9 +35,13 @@
 
 <script>
   // import { mapGetters } from 'vuex';
+  import CartButton from '~/components/cartButton';
 
   export default {
     name: 'category',
+    components: {
+      CartButton,
+    },
     validate ({ params }) {
       // render the error page if false
       return /^\d+$/.test(params.id)
@@ -67,9 +72,7 @@
       // ]),
     },
     methods: {
-      addToCart() {
-        alert('added to cart')
-      }
+
     }
   }
 </script>

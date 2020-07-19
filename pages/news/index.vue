@@ -1,12 +1,10 @@
 <template>
-    <div class="container-fluid">
-        <nuxt/>
-    </div>
+
 </template>
 
 <script>
   export default {
-    name: 'empty'
+    name: "index",
   }
 </script>
 

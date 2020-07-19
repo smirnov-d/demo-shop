@@ -13,7 +13,8 @@
 
 <script>
   export default {
-    name: "product",async fetch({ store, params }) {
+    name: "product",
+    async fetch({ store, params }) {
       if(!store.state.products.products.length) {
         await store.dispatch('products/fetchData')//, params.id
       }

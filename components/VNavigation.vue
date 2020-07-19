@@ -6,7 +6,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mr-auto ml-3 mb-2 mb-lg-0">
                     <!--<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Categories
@@ -25,7 +25,7 @@
                         <nuxt-link active-class="active" class="nav-link" to="/categories">Categories</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link active-class="active" class="nav-link" to="/blog">Blog</nuxt-link>
+                        <nuxt-link active-class="active" class="nav-link" to="/news">News</nuxt-link>
                     </li>
                     <li class="nav-item">
                         <!-- todo: Nuxt.js v2.10.0, you can also use the prefetch prop set to false --><!--no-prefetch :prefetch="false"-->
@@ -33,13 +33,13 @@
                     </li>
                 </ul>
 
-                <button v-if="!isLoggedIn" key="login" class="btn btn-primary mx-3" @click="login">Login</button>
-                <button v-else key="logout" class="btn btn-primary mx-3" @click="logout">Logout</button>
-
-                <form @submit.prevent class="d-flex">
+                <form @submit.prevent class="d-flex mx-3">
                     <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+
+                <button v-if="!isLoggedIn" key="login" class="btn btn-primary mx-3" @click="login">Login</button>
+                <button v-else key="logout" class="btn btn-primary mx-3" @click="logout">Logout</button>
             </div>
         </div>
     </nav>
