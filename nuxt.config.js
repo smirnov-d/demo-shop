@@ -1,12 +1,17 @@
 //https://habr.com/ru/post/490496/
+//trailingSlash issue
 const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  //mode: 'universal', // 'universal' / 'spa' // todo: check default
+  // env: {
+  //   baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  // },
+  //mode: 'universal', // 'universal' (default) / 'spa'
+  // 2 bundles for old/new browsers
   modern: 'client',
   head: {
     htmlAttrs: {
-      lang: 'ru'
+      lang: 'en'
     },
     titleTemplate: '%s - Nuxt.js',
     meta: [
@@ -28,9 +33,10 @@ module.exports = {
     pages: true,
     commons: true
   },
-  // optimization: {
-  //   minimize: !isDev
-  // },
+  optimization: {
+    minimize: true
+    // minimize: !isDev
+  },
   extractCSS: {
     ignoreOrder: true
   },
@@ -45,9 +51,9 @@ module.exports = {
     font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[contenthash:7].[ext]',
     video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[contenthash:7].[ext]'
   },
-  // router: {
-  //   prefetchLinks: false
-  // },
+  router: {
+    prefetchLinks: false
+  },
   css: [
     'normalize.css',
     'assets/style.css',
@@ -66,7 +72,35 @@ module.exports = {
     //   }),
     //   // vuex modules names/ add version: '0.0.1' prop to module state for user cache invalidation
     //   localStorage: ['categories', 'products', 'cart', 'auth'] //  If not entered, “localStorage” is the default value
-    // }]
+    // }],
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            code: 'en',
+            name: 'English'
+          },
+          {
+            code: 'es',
+            name: 'Español'
+          },
+        ],
+        defaultLocale: 'en',
+        vueI18n: {
+          fallbackLocale: 'en',
+          messages: {
+            en: {
+              greeting: 'Hello world!'
+            },
+            es: {
+              greeting: '¡Hola mundo!'
+            }
+          }
+        },
+        strategy: 'no_prefix'
+      }
+    ]
   ],
   plugins: [
     // only client side usage demo example (dependency is not installed)

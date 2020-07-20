@@ -46,8 +46,10 @@
       // render the error page if false
       return /^\d+$/.test(params.id)
     },
-    head: {
-      title: 'Категория'
+    head () {
+      return {
+        title: `Category-${this.$route.params.id}`
+      }
     },
     // async asyncData({$api, params}) {
     //   return  {

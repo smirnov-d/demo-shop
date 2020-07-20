@@ -5,11 +5,9 @@ export const state = () => ({
 export const mutations = {
   add (state, product) {
     state.cart.push(product);
-    console.log(state.cart);
-  },
+   },
   remove (state, productId) {
     state.cart = state.cart.filter(({id}) => id !== productId);
-    console.log(state.cart);
   }
 };
 

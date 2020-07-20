@@ -20,6 +20,7 @@ export const actions = {
 };
 
 export const getters = {
+  ids: ({products}) => products.map(({id}) => id),
   getProductById: ({products}) => (prodId) => products.find(({id}) => id == prodId),
   getProductsByCategory: (state) => (catId) => state.products.filter(({categoryId}) => categoryId == catId),
 };
