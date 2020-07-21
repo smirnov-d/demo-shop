@@ -6,7 +6,10 @@
 
 <script>
   export default {
-    name: 'empty'
+    name: 'empty',
+    head () {
+      return this.$nuxtI18nSeo()
+    }
   }
 </script>
 

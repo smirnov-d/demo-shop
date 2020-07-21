@@ -22,6 +22,10 @@
     name: 'default',
     components: {
       VNavigation,
+    },
+    //using with seo: false, //performance issue //also can be merged with custom user meta/ see docs
+    head () {
+      return this.$nuxtI18nSeo()
     }
   }
 </script>

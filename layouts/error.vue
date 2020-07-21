@@ -13,6 +13,12 @@
     props: ['error'],
     head: {
       title: 'Ошибка!'
+    },
+    head () {
+      return {
+        ...this.$nuxtI18nSeo(),
+        title: 'Ошибка!',
+      }
     }
   }
 </script>

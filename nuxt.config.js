@@ -79,26 +79,34 @@ module.exports = {
         locales: [
           {
             code: 'en',
-            name: 'English'
+            name: 'English',
+            iso: 'en-US',
+            file: 'en-US.js',
           },
           {
             code: 'es',
-            name: 'Español'
+            name: 'Español',
+            iso: 'es-ES',
+            file: 'es-ES.js'
+            // isCatchallLocale: true
           },
         ],
         defaultLocale: 'en',
         vueI18n: {
           fallbackLocale: 'en',
-          messages: {
-            en: {
-              greeting: 'Hello world!'
-            },
-            es: {
-              greeting: '¡Hola mundo!'
-            }
-          }
+          // messages: {
+          //
+          // }
         },
-        strategy: 'no_prefix'
+        strategy: 'no_prefix',
+        // detectBrowserLanguage: false,
+        // detectBrowserLanguage: {
+        //   useCookie: false
+        // },
+        seo: false,
+        // async
+        lazy: true,
+        langDir: 'lang/'
       }
     ]
   ],
