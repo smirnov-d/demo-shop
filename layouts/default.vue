@@ -23,10 +23,21 @@
     components: {
       VNavigation,
     },
-    //using with seo: false, //performance issue //also can be merged with custom user meta/ see docs
+    //using with "seo: false", //performance issue //also can be merged with custom user meta/ see https://nuxt-community.github.io/nuxt-i18n/seo.html#improving-performance
     head () {
-      return this.$nuxtI18nSeo()
-    }
+      // todo: .env?
+      const canonical = `https://localhost${this.$route.path
+        .toLowerCase()
+        .replace(/\/$/, '')}`
+      return {
+        ...this.$nuxtI18nSeo(),
+        script: [
+          // mobile console
+          // { src: 'https://markknol.github.io/console-log-viewer/console-log-viewer.js' }
+        ],
+        link: [{ rel: 'canonical', href: canonical }]
+      }
+    },
   }
 </script>
 

@@ -14,17 +14,22 @@
 <script>
   export default {
     name: "product",
-    async fetch({ store, params }) {
+    head() {
+      return {
+        title: this.product.name
+      }
+    },
+    async fetch({ store }) {
+      console.log('fetch');
       if(!store.state.products.products.length) {
         await store.dispatch('products/fetchData')//, params.id
       }
     },
     computed: {
       product() {
-        return this.$store.getters['products/getProductById'](this.$route.params.id)
+        return this.$store.getters['products/getProductById'](this.$route.params.pid)
       },
     },
-
   }
 </script>
 

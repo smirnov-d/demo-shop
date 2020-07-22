@@ -8,7 +8,6 @@ export const actions = {
     // if (req.session && req.session.authUser) {
     //   commit('setToken', req.session.authUser)
     // }
-    await dispatch('products/fetchData','test');
 
     if (0) {
       commit('auth/setToken', 'sadasdasdasdasd')
