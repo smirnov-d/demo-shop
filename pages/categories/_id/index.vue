@@ -16,7 +16,7 @@
                             <div class="col-md-8">
                                 <div class="card-body d-flex flex-column h-100">
                                     <h5 class="card-title">{{product.name}}</h5>
-                                    <div class="card-text flex-grow-1" v-html="product.description"></div>
+                                    <div class="card-text flex-grow-1" v-html="product.intro"></div>
                                     <p class="card-text">{{product.price}}</p>
                                 </div>
                             </div>

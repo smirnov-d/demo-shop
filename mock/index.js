@@ -17,6 +17,7 @@ module.exports = () => {
     data.products.push({
       id: i,
       name: `product${i}`,
+      intro: getDescription(1),
       description: getDescription(),
       categoryId: categoriesIds[getRandomInt(categoriesIds.length - 1, 0)],
       image: 'https://picsum.photos/200',
