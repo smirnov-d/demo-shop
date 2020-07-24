@@ -7,7 +7,7 @@ export default ({ req, isServer, app}, inject) => {
     const matches = cookies.match(new RegExp(
       "(?:^|; )" + find.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
-    const res = matches ? decodeURIComponent(matches[1]) : undefined;
+    const res = matches ? decodeURIComponent(matches[1]) : '';
 
   inject('theme', {
       set(val) {

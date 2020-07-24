@@ -18,11 +18,6 @@
         title: this.product.name
       }
     },
-    async fetch({ store, params }) {
-      if(!store.state.products.products.length) {
-        await store.dispatch('products/fetchData')//, params.id
-      }
-    },
     computed: {
       product() {
         return this.$store.getters['products/getProductById'](this.$route.params.pid)

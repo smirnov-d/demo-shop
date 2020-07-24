@@ -37,4 +37,5 @@ export const actions = {
 
 export const getters = {
   isLoggedIn: (state) => !!state.token
+  // isLoggedIn: (state) => !!localStorage.getItem('token')
 };

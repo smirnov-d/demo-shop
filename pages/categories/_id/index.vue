@@ -56,11 +56,6 @@
     //     products: await $api.getProductsByCategory(params.id),
     //   }
     // },
-    async fetch({ store, params }) {
-      if(!store.state.products.products.length) {
-        await store.dispatch('products/fetchData')//, params.id
-      }
-    },
     computed: {
       // todo: check best practices for Method-style Getters with nuxt
       products() {

@@ -11,7 +11,9 @@
         ::marker experimental feature
         <ul class="pl-0 custom-marker">
             <li>notifications (add to cart)</li>
-            <li>themes</li>
+            <!--todo: add default user color schema (window.matchMedia('(prefers-color-scheme: dark)').matches
+)-->
+            <li class="success">themes</li>
             <li class="success">i18n</li>
             <li class="success">protected routes</li>
             <li class="success">Отдельный роут в модальном окне</li>

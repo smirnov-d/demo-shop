@@ -37,12 +37,6 @@
       // const b =5;
       return store.getters['products/ids'].includes(+params.id)
     },
-    // async fetch({ store, params }) {
-    //   console.log('server fetch');
-    //   if(!store.state.products.products.length) {
-    //     await store.dispatch('products/fetchData')//, params.id
-    //   }
-    // },
     computed: {
       // todo: check best practices for Method-style Getters with nuxt
       news() {

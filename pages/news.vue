@@ -14,12 +14,6 @@
     data: () => ({
       test: 0,
     }),
-    // async fetch({ store, params }) {
-    //   console.log('server fetch');
-    //   if(!store.state.products.products.length) {
-    //     await store.dispatch('products/fetchData')//, params.id
-    //   }
-    // },
     methods: {
       goToNews() {
         this.$router.push(`/news/${this.test}`)
