@@ -33,6 +33,11 @@
                     </li>
                 </ul>
 
+                <div>
+                    <span class="btn btn-link" @click="$theme.set('')">Default</span>
+                    <span class="btn btn-link" @click="$theme.set('dark-mode')">Dark</span>
+                </div>
+
                 <div class="d-inline-flex">
                     <h3>{{ $t('greeting') }}</h3>
                     <div

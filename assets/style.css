@@ -2,6 +2,18 @@
 /*    display: grid;*/
 /*    grid-template-rows: auto 1fr auto;*/
 /*}*/
+:root {
+    --color: #212529;
+    --bg: #fff;
+}
+.dark-mode {
+    --color: #ebf4f1;
+    --bg: #091a28;
+}
+body {
+    background-color: var(--bg);
+    color: var(--color);
+}
 img {
     max-width: 100%;
 }

@@ -37,7 +37,7 @@
     name: 'index',
     head: {
       title: 'Домашнаяя страница'
-    }
+    },
   }
 </script>
 
