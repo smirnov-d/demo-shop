@@ -34,8 +34,8 @@
                 </ul>
 
                 <div>
-                    <span class="btn btn-link" @click="$theme.set('')">Default</span>
-                    <span class="btn btn-link" @click="$theme.set('dark-mode')">Dark</span>
+                    <span class="btn btn-link" @click="$theme.set('auto')">Auto</span>
+                    <span v-for="theme in $theme.themes" class="btn btn-link" @click="$theme.set(theme.css)">{{theme.name}}</span>
                 </div>
 
                 <div class="d-inline-flex">

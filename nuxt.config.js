@@ -68,17 +68,36 @@ module.exports = {
     color: '#0d6efd',
     height: '5px'
   },
+  // module.js / this.themes
+  // themes: [
+  //   {
+  //     name: 'custom',
+  //     css: 'my-custom-class smth-else',
+  //     cssPath: ['~/assets/css/theme.css'],
+  //   }
+  // ],
   modules: [
     '@nuxtjs/axios',
+    ['~/modules/themes', {
+      cookieName: 'myCustomCookieName',
+      themes: [
+        {
+          name: 'custom',
+          css: 'my-custom-class smth-else',
+          cssPath: ['~/assets/css/theme.css'],
+        },
+      ]
+    }],
     // persisted data example
     // todo: check versions
-    // ['nuxt-vuex-localstorage', {
-    //   ...(isDev && {
-    //     mode: 'debug'
-    //   }),
-    //   // vuex modules names/ add version: '0.0.1' prop to module state for user cache invalidation
-    //   localStorage: ['categories', 'products', 'cart', 'auth'] //  If not entered, “localStorage” is the default value
-    // }],
+    // data isn't available for ssr
+    ['nuxt-vuex-localstorage', {
+      ...(isDev && {
+        mode: 'debug'
+      }),
+      // vuex modules names/ add version: '0.0.1' prop to module state for user cache invalidation
+      localStorage: ['cart'] //  If not entered, “localStorage” is the default value
+    }],
     [
       'nuxt-i18n',
       {
@@ -99,10 +118,9 @@ module.exports = {
         ],
         defaultLocale: 'en',
         vueI18n: {
-          fallbackLocale: 'en',
-          // messages: {
-          //
-          // }
+          // todo: if a fallback option is enabled - a fallback locale will be loaded every time
+          // fallbackLocale: 'en',
+          // messages: {}
         },
         strategy: 'no_prefix',
         // detectBrowserLanguage: false,
@@ -120,7 +138,7 @@ module.exports = {
     // only client side usage demo example (dependency is not installed)
     // { src: '~/plugins/datepicker.js', ssr: false },
     '~/services/ApiService.js',
-    '~/plugins/themes.js',
+    // '~/plugins/themes.js',
   ],
   render: {
     // http2: {

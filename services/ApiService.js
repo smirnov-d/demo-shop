@@ -1,5 +1,5 @@
 // todo: setToken(). check for server side
-// todo: глянуть конфиги базового класса и инстанса (почистить .env и чекнуть разницу)
+// todo: API_HOST API_PORT for auto config axios
 export default function ({ $axios }, inject) {
   // Create a custom axios instance
   const api = $axios.create({
@@ -15,7 +15,7 @@ export default function ({ $axios }, inject) {
 
   // interceptors
   api.onRequest(config => {
-    console.log('Making request to ' + config.url)
+    console.log('Making request to ', config.url)
   })
 
   api.onError(error => {

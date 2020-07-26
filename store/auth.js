@@ -22,7 +22,8 @@ export const actions = {
       });
       commit('setToken', data.token);
       this.$api.setToken(data.token, 'Bearer');
-      localStorage.setItem('token', data.token)
+      // localStorage.setItem('token', data.token)
+      document.cookie=`token=${data.token}`
     } catch (e) {
       console.log(e);
     }
@@ -30,7 +31,8 @@ export const actions = {
   logout({commit}) {
     this.$axios.setToken(false);
     commit('setToken', null);
-    localStorage.removeItem('token');
+    // localStorage.removeItem('token');
+    document.cookie = "token=''; max-age=0";
     window.location.reload();
   },
 };

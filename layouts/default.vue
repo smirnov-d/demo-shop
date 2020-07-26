@@ -25,8 +25,7 @@
     },
     //using with "seo: false", //performance issue //also can be merged with custom user meta/ see https://nuxt-community.github.io/nuxt-i18n/seo.html#improving-performance
     head () {
-      // todo: .env?
-      const canonical = `https://localhost${this.$route.path
+      const canonical = `${process.env.BASE_URL}${this.$route.path
         .toLowerCase()
         .replace(/\/$/, '')}`
       return {
