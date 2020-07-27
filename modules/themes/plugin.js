@@ -39,7 +39,8 @@ export default ({req, app}, inject) => {
       } else {
         document.cookie = `${find}=${val}`;
       }
-      app.$theme.res.res = (val === 'auto') ? getSystemTheme() : val;
+      console.log('test', this.res.res);
+      this.res.res = (val === 'auto') ? getSystemTheme() : val;
     },
     res: Vue.observable({res: res})
   })
