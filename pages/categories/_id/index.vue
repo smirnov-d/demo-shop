@@ -34,7 +34,6 @@
 </template>
 
 <script>
-  // import { mapGetters } from 'vuex';
   import CartButton from '~/components/cartButton';
 
   export default {
@@ -51,26 +50,12 @@
         title: `Category-${this.$route.params.id}`
       }
     },
-    // async asyncData({$api, params}) {
-    //   return  {
-    //     products: await $api.getProductsByCategory(params.id),
-    //   }
-    // },
     computed: {
-      // todo: check best practices for Method-style Getters with nuxt
+      // todo: check the best practices for a Method-style Getters with nuxt
       products() {
         return this.$store.getters['products/getProductsByCategory'](this.$route.params.id)
       },
-      // products() {
-      //   return this['products/getProductsByCategory'](this.$route.params.id)
-      // },
-      // ...mapGetters([
-      //   'products/getProductsByCategory',
-      // ]),
     },
-    methods: {
-
-    }
   }
 </script>
 

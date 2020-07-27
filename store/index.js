@@ -4,9 +4,6 @@ export const actions = {
   // can only be placed on the main module
   async nuxtServerInit ({ commit, dispatch }, { req }) {
     console.log('server init');
-    // if (req.session && req.session.authUser) {
-    //   commit('setToken', req.session.authUser)
-    // }
     if (req.headers && req.headers.cookie) {
       const cookies = req.headers.cookie
       const find = 'token';
@@ -25,9 +22,5 @@ export const actions = {
     // }
 
     await dispatch('products/fetchData');
-
-    // if (0) {
-    //
-    // }
   },
 }

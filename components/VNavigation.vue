@@ -50,10 +50,10 @@
                     </div>
                 </div>
 
-                <form @submit.prevent class="d-flex mx-3">
+                <!--<form @submit.prevent class="d-flex mx-3">
                     <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                </form>-->
 
                 <button v-if="!isLoggedIn" key="login" class="btn btn-primary mx-3" @click="login">Login</button>
                 <button v-else key="logout" class="btn btn-primary mx-3" @click="logout">Logout</button>
@@ -80,7 +80,6 @@
         await this.$store.dispatch('auth/login', {
           "email": "eve.holt@reqres.in",
           "password": "cityslicka",
-          // "email": "peter@klaven"
         });
       },
       logout() {

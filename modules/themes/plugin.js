@@ -39,8 +39,6 @@ export default ({req, app}, inject) => {
       } else {
         document.cookie = `${find}=${val}`;
       }
-      console.log('find', find);
-      // debugger
       app.$theme.res.res = (val === 'auto') ? getSystemTheme() : val;
     },
     res: Vue.observable({res: res})

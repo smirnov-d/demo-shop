@@ -22,12 +22,6 @@
     head: {
       title: 'Категории'
     },
-    // async data({ params }) {
-    //   const categories = await this.$api.get('/categories');
-    //   return {
-    //     categories: categories.data,
-    //   }
-    // }
     async fetch({ store }) {
       if(!store.state.categories.categories.length) {
         await store.dispatch('categories/fetchData')

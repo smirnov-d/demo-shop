@@ -15,9 +15,6 @@
                     <div class="modal-footer">
                         <nuxt-link :to="`/news/${news.id - 1}`">Prev</nuxt-link>
                         <nuxt-link :to="`/news/${news.id + 1}`">Next</nuxt-link>
-                        <!--
-                        <button type="button" @click="" class="btn btn-link">Prev</button>
-                        <button type="button" class="btn btn-link">Next</button>-->
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
@@ -31,39 +28,14 @@
   export default {
     name: "child",
     validate ({ params, store }) {
-      // render the error page if false
-      // debugger;
-      // const a = store.getters['products/test'];
-      // const b =5;
       return store.getters['products/ids'].includes(+params.id)
     },
     computed: {
-      // todo: check best practices for Method-style Getters with nuxt
+      // todo: check the best practices for a Method-style Getters with nuxt
       news() {
-        console.log('computed updated', this.$route.params.id);
         return this.$route.params.id ? this.$store.getters['products/getProductById'](this.$route.params.id) : null
       },
     },
-    mounted() {
-      console.log('mounted');
-      // this.handleClose();
-      // console.log('activated');
-      // new bootstrap.Modal(this.$refs.modal).show()
-      // this.$refs.modal.addEventListener('show.bs.modal', function (e) {
-      //   console.log('modal show');
-      // })
-      // this.$refs.modal.addEventListener('hide.bs.modal', function (e) {
-      //   console.log('modal hide');
-      // })
-      // this.$refs.modal.addEventListener('hidden.bs.modal', (e) => {
-      //   console.log('modal hidden');
-      //   this.handleClose()
-      // });
-    },
-    // beforeDestroy() {
-    //   new bootstrap.Modal(this.$refs.modal).hide()
-    //   // todo: remove event listeners
-    // },
     activated() {
       console.log('activated');
       new bootstrap.Modal(this.$refs.modal).show()

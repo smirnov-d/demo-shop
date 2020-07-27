@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    /*todo: check camel-case for page name*/
+    /* todo: check camelCase in page name */
   export default {
     name: "news",
     data: () => ({

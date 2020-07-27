@@ -10,6 +10,7 @@ export default function ({ $axios }, inject) {
     }
   })
 
+  // API_HOST API_PORT can auto setup axios
   // Set baseURL to something different
   // api.setBaseURL(process.env.API_URL)
 
@@ -31,7 +32,4 @@ export default function ({ $axios }, inject) {
 
   // Inject to context as $api
   inject('api', api)
-
-
-  //let data = await $axios.$get('...')
 }

@@ -1,5 +1,5 @@
-//https://habr.com/ru/post/490496/
-//trailingSlash issue
+// https://habr.com/ru/post/490496/
+// trailingSlash issue
 const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -90,7 +90,7 @@ module.exports = {
     }],
     // persisted data example
     // todo: check versions
-    // data isn't available for ssr
+    // data isn't available for server in ssr-mode
     ['nuxt-vuex-localstorage', {
       ...(isDev && {
         mode: 'debug'
