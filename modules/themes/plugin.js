@@ -22,9 +22,14 @@ export default ({req, app}, inject) => {
   // const find = '<%= options.cookieName %>' || 'testtheme';
   console.log('cookieName', find);
 
-  const matches = cookies.match(new RegExp(
-    "(?:^|; )" + find.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
+  let matches = [];
+
+  if (cookies) {
+    matches = cookies.match(new RegExp(
+      "(?:^|; )" + find.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+  }
+
   const res = matches ? decodeURIComponent(matches[1]) : '';
 
 
